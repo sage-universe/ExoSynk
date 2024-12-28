@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Virtual Electronics Lab</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #f4f4f9;
+        }
+
+        .toolbar {
+            display: flex;
+            flex-direction: column;
+            width: 200px;
+            background-color: #ddd;
+            padding: 10px;
+            border-right: 1px solid #aaa;
+        }
+
+        .toolbar button {
+            margin: 5px 0;
+            padding: 10px;
+            background-color: #fff;
+            border: 1px solid #aaa;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .toolbar button:hover {
+            background-color: #cfcfcf;
+        }
+
+        .workspace {
+            flex: 1;
+            display: flex;
+            position: relative;
+            margin: 20px;
+            border: 2px dashed #aaa;
+            width: 800px;
+            height: 600px;
+            background-color: #fff;
+        }
+
+        .component {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            text-align: center;
+            line-height: 50px;
+            background-color: #4caf50;
+            color: white;
+            border-radius: 5px;
+            cursor: move;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(20, 1fr);
+            grid-template-rows: repeat(15, 1fr);
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            pointer-events: none;
+        }
+
+        .grid div {
+            border: 1px dotted #ccc;
+        }
+
+    </style>
+</head>
+<body>
+    <div style="display: flex;">
+        <div class="toolbar">
+            <button id="add-and">AND Gate</button>
+            <button id="add-or">OR Gate</button>
+            <button id="add-not">NOT Gate</button>
+            <button id="reset">Reset</button>
+        </div>
+        <div class="workspace">
+            <div class="grid">
+                <!-- Empty divs for grid visualization -->
+                <div></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const workspace = document.querySelector('.workspace');
+        const addAndButton = document.getElementById('add-and');
+        const addOrButton = document.getElementById('add-or');
+        const addNotButton = document.getElementById('add-not');
+        const resetButton = document.getElementById('reset');
+
+        let selectedComponent = null;
+
+        function createComponent(label) {
+            const component = document.createElement('div');
+            component.classList.add('component');
+            component.textContent = label;
+
+            // Enable dragging
+            component.draggable = true;
+            component.style.left = '10px';
+            component.style.top = '10px';
+
+            component.addEventListener('dragstart', (e) => {
+                selectedComponent = component;
+                e.dataTransfer.setData('text/plain', '');
+            });
+
+            workspace.appendChild(component);
+        }
+
+        workspace.addEventListener('dragover', (e) => {
+            e.preventDefault();
+        });
+
+        workspace.addEventListener('drop', (e) => {
+            e.preventDefault();
+            if (selectedComponent) {
+                const rect = workspace.getBoundingClientRect();
+                selectedComponent.style.left = `${e.clientX - rect.left - 25}px`;
+                selectedComponent.style.top = `${e.clientY - rect.top - 25}px`;
+            }
+        });
+
+        addAndButton.addEventListener('click', () => createComponent('AND'));
+        addOrButton.addEventListener('click', () => createComponent('OR'));
+        addNotButton.addEventListener('click', () => createComponent('NOT'));
+
+        resetButton.addEventListener('click', () => {
+            workspace.querySelectorAll('.component').forEach(component => component.remove());
+        });
+    </script>
+</body>
+</html>
