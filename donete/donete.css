@@ -1,0 +1,133 @@
+/* Dark theme styles with animations and spacing */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #121212;
+    color: #ccc;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #1c1c1c;
+    color: #fff;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+header p {
+    font-size: 1.2rem;
+    margin-bottom: 0;
+}
+
+.text-accent {
+    color: #EA77AA;
+}
+
+ul {
+    margin-top: 10px;
+    padding-left: 20px;
+    line-height: 1.8;
+}
+
+ul li {
+    margin-bottom: 10px;
+    list-style-type: none;
+}
+
+ul li::before {
+    content: "• ";
+    color: #EA77AA;
+    margin-right: 8px;
+}
+
+a {
+    color: #EA77AA;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.custom-btn {
+    background-color: #EA77AA;
+    color: #fff;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 4px;
+    text-decoration: none;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(234, 119, 170, 0.3);
+}
+
+.custom-btn:hover {
+    background-color: #c95e89;
+    box-shadow: 0 6px 20px rgba(234, 119, 170, 0.5);
+    text-decoration: none;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-10px);
+    }
+    60% {
+        transform: translateY(-5px);
+    }
+}
+
+.animate-fade-in {
+    animation: fadeIn 2s ease-in-out;
+}
+
+.animate-slide-up {
+    animation: slideUp 1.5s ease-in-out;
+}
+
+.animate-pulse {
+    animation: pulse 2s infinite;
+}
+
+.animate-bounce {
+    animation: bounce 2s infinite;
+}
+
+footer {
+    background-color: #000;
+    color: #aaa;
+}

@@ -1,0 +1,211 @@
+/* General Styles for Dark Theme */
+body.dark-theme {
+    background-color: #121212;
+    color: #f1f1f1;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* About Us Section */
+.about-us {
+    padding: 50px 20px;
+    text-align: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.about-us h2 {
+    font-size: 2.5rem;
+    color: #f1f1f1;
+    margin-bottom: 20px;
+}
+
+.about-us p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    color: #ccc;
+}
+
+.about-us h3 {
+    font-size: 2rem;
+    color: #f1f1f1;
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
+
+/* Owners Section */
+.owners {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+    margin-top: 40px;
+}
+
+.owner {
+    background-color: #1e1e1e;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    max-width: 300px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.owner-img {
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    margin-bottom: 20px;
+}
+
+.owner h4 {
+    font-size: 1.5rem;
+    color: #f1f1f1;
+    margin-bottom: 10px;
+}
+
+.owner p {
+    font-size: 1rem;
+    color: #ccc;
+}
+
+/* Values Section */
+.about-us ul {
+    list-style-type: none;
+    padding: 0;
+    margin-top: 20px;
+}
+
+.about-us ul li {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    color: #ccc;
+    margin-bottom: 15px;
+}
+
+.about-us ul li strong {
+    font-weight: bold;
+    color: #f1f1f1;
+}
+
+/* Footer */
+footer {
+    background-color: #1e1e1e;
+    color: #f1f1f1;
+    padding: 20px 0;
+    text-align: center;
+    margin-top: 50px;
+}
+
+footer p {
+    font-size: 1rem;
+    color: #888;
+}/* General Styles for Dark Theme */
+body.dark-theme {
+    background-color: #121212;
+    color: #f1f1f1;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* About Us Section */
+.about-us {
+    padding: 50px 20px;
+    text-align: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.about-us h2 {
+    font-size: 2.5rem;
+    color: #f1f1f1;
+    margin-bottom: 20px;
+}
+
+.about-us p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    color: #ccc;
+}
+
+.about-us h3 {
+    font-size: 2rem;
+    color: #f1f1f1;
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
+
+/* Owners Section */
+.owners {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+    margin-top: 40px;
+}
+
+.owner {
+    background-color: #1e1e1e;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    max-width: 300px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.owner-img {
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    margin-bottom: 20px;
+}
+
+.owner h4 {
+    font-size: 1.5rem;
+    color: #f1f1f1;
+    margin-bottom: 10px;
+}
+
+.owner p {
+    font-size: 1rem;
+    color: #ccc;
+}
+
+/* Values Section */
+.about-us ul {
+    list-style-type: none;
+    padding: 0;
+    margin-top: 20px;
+}
+
+.about-us ul li {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    color: #ccc;
+    margin-bottom: 15px;
+}
+
+.about-us ul li strong {
+    font-weight: bold;
+    color: #f1f1f1;
+}
+
+/* Footer */
+footer {
+    background-color: #1e1e1e;
+    color: #f1f1f1;
+    padding: 20px 0;
+    text-align: center;
+    margin-top: 50px;
+}
+
+footer p {
+    font-size: 1rem;
+    color: #888;
+}
