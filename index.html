@@ -1,115 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>ElectiX - The Electronics Simulator</title>
-    <!-- custom css -->
-    <link rel="stylesheet" href="styles.css" />
-
-    <!-- external css -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-
-  </head>
-  <body>
-    <nav class="navbar navbar-expand-lg navbar-dark">
-      <div class="container-fluid">
-        <a class="navbar-brand" href="#">ElectiX</a>
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-toggle="collapse"
-          data-target="#navbarNav"
-          aria-controls="navbarNav"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#">Save</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Reset Simulator</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="about us/about us.html">About us</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="donete/donete.html">Donate us</a>
-            </li>
-          </ul>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ExoVerse - The Virtual Lab</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <div class="title-box">
+            <h1><span class="bold">Exo</span>Verse</h1>
+            <p class="subtitle">The Virtual Lab</p>
         </div>
-      </div>
-    </nav>
-
-    <section class="container mt-3">
-      <div class="row">
-        <div class="col-md-3">
-          <div class="list-group">
-            <a href="#" class="list-group-item list-group-item-action" aria-current="true">
-              Components
-            </a>
-            <a href="#" class="list-group-item list-group-item-action">Resistors</a>
-            <a href="#" class="list-group-item list-group-item-action">Capacitors</a>
-            <a href="#" class="list-group-item list-group-item-action">Inductors</a>
-            <a href="#" class="list-group-item list-group-item-action">Logic Gates</a>
-            <a href="#" class="list-group-item list-group-item-action">Transistors</a>
-          </div>
+        <div class="button-box">
+            <button class="btn">Sign in</button>
+            <button class="btn">Sign up</button>
         </div>
-        <div class="col-md-9">
-          <!-- Main content goes here -->
-          <div class="row">
-            <div class="col-md-4">
-              <div class="card mt-3">
-                <div class="card-header">
-                  Fixed Resistor
-                </div>
-                <div class="card-body">
-                  <p class="card-text">Description of Fixed Resistor.</p>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-4">
-              <div class="card mt-3">
-                <div class="card-header">
-                  Variable Resistor
-                </div>
-                <div class="card-body">
-                  <p class="card-text">Description of Variable Resistor.</p>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-4">
-              <div class="card mt-3">
-                <div class="card-header">
-                  Photoresistor
-                </div>
-                <div class="card-body">
-                  <p class="card-text">Description of Photoresistor.</p>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-4">
-              <div class="card mt-3">
-                <div class="card-header">
-                  Thermistor
-                </div>
-                <div class="card-body">
-                  <p class="card-text">Description of Thermistor.</p>
-                </div>
-              </div>
-            </div>
-            <!-- Add more cards for other components here -->
-          </div>
+        <div class="social-icons">
+            <a href="https://www.linkedin.com/in/sujal-patil-b90953313?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3Bkn4Ce%2BLtSlaTTo%2FoqsXStQ%3D%3D"><i class="fa-brands fa-linkedin"></i></a>
+            <a href="https://github.com/sujal1201"><i class="fa-brands fa-github"></i></a>
+            <a href="https://x.com/@patil_sujal5150"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="https://instagram.com/sujalpatil3799"><i class="fa-brands fa-instagram"></i></a>
         </div>
-      </div>
-    </section>
+    </div>
 
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-  </body>
+   
+
+    <script>
+        let signUp = document.querySelector(".btn:nth-child(2)");
+        let signIn = document.querySelector(".btn:nth-child(1)");
+        signUp.addEventListener("click", () => {
+            window.location.href = "sign/sign-up.html";
+        });
+        signIn.addEventListener("click", () => {
+            window.location.href = "sign/sign-in.html";
+        });
+    </script>
+
+</body>
 </html>
