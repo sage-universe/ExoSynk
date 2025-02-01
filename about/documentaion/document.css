@@ -1,0 +1,40 @@
+body {
+    background-color: #e4e4e4;
+    scroll-behavior: smooth;
+}
+
+.hero {
+    background: linear-gradient(135deg, #007bff, #6610f2);
+    padding: 100px 20px;
+}
+
+h2 {
+    border-bottom: 3px solid #007bff;
+    display: inline-block;
+    padding-bottom: 5px;
+    margin-bottom: 20px;
+}
+
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.8s ease-in-out;
+}
+
+.fade-in.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.card {
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+}
+
+.container
+{
+    color: black;
+}
