@@ -33,6 +33,15 @@ ExoVerce aims to make complex systems accessible by simplifying the design and t
 - Read all documention at [Exoverce/Documentation](https://exoverce.netlify.app/about/documentaion/document.html)
 - Download Project Plan [Click to Download](https://exoverce.netlify.app/about/documentaion/document.html#download)
 
+ ### Acknowledgments
+
+Thank you to everyone who has contributed to Exoverce. Your support and dedication make this project possible. 🚀
+
+<a href="https://github.com/sage-universe/ExoVerce/graphs/contributors" target="_blank">
+  <img src="https://contrib.rocks/image?repo=sage-universe/ExoVerce" alt="Exoverce Contributors" />
+</a>
+
+
 ## License
 
 MIT License. See LICENSE for details.
