@@ -31,7 +31,7 @@ ExoVerce aims to make complex systems accessible by simplifying the design and t
 ## Exoverce Documentation
 
 - Read all documention at [Exoverce/Documentation](https://exoverce.netlify.app/about/documentaion/document.html)
-- Download Project Plan [Click to Download](http://127.0.0.1:5500/about/documentaion/document.html#download)
+- Download Project Plan [Click to Download](https://exoverce.netlify.app/about/documentaion/document.html#download)
 
 ## License
 
