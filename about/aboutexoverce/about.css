@@ -1,0 +1,39 @@
+/* Custom Styles for About Page */
+
+/* Hero Section */
+.hero-section {
+    background-color: #343a40;
+    color: white;
+}
+
+.hero-section h1 {
+    font-weight: bold;
+}
+
+.hero-section .lead {
+    font-size: 1.25rem;
+}
+
+/* About Section */
+.about-section {
+    background-color: #f8f9fa;
+}
+
+.about-section img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Features Section */
+.features-section .fas {
+    color: #007bff;
+}
+
+/* Footer */
+.footer {
+    background-color: #343a40;
+}
+
+.footer p {
+    margin-bottom: 0;
+}
