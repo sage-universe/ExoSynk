@@ -1,0 +1,28 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f8f9fa;
+}
+
+/* Navbar brand styling */
+.navbar-brand {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+/* Navbar items hover effect */
+.nav-link {
+    font-size: 1.1rem;
+    transition: 0.3s;
+}
+
+.nav-link:hover {
+    color: #f8d210 !important;
+}
+
+/* Make storage info text bold */
+.navbar .text-white strong {
+    font-weight: bold;
+}
+
+
+
