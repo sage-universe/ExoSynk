@@ -1,0 +1,39 @@
+#canvas {
+    height: 100vh;
+    overflow: hidden;
+}
+
+.component {
+    position: absolute;
+    transition: transform 0.1s;
+}
+
+.positive-port {
+    background-color: #ff4444;
+    border: 2px solid #cc0000;
+}
+
+.negative-port {
+    background-color: #4444ff;
+    border: 2px solid #0000cc;
+}
+
+.bulb {
+    width: 40px;
+    height: 40px;
+    background-color: #ffff00;
+    border-radius: 50%;
+    border: 2px solid #cccc00;
+}
+
+.wire-path {
+    stroke: #666;
+    stroke-width: 3;
+    fill: none;
+}
+
+.drawing-wire {
+    stroke: #00ff00;
+    stroke-width: 3;
+    fill: none;
+}

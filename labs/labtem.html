@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exoverce Wiring Lab</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Temporary inline CSS - move to labtem.css later */
+        .component {
+            position: absolute;
+            cursor: move;
+            user-select: none;
+        }
+        .port {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+        }
+        .wire {
+            position: absolute;
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="d-flex vh-100">
+        <div class="sidebar bg-dark text-white p-3" style="width: 250px;">
+            <h4 class="border-bottom pb-2">Tools</h4>
+            <button class="btn btn-outline-light mb-2 w-100" onclick="addComponent('positive')">+ Port</button>
+            <button class="btn btn-outline-light mb-2 w-100" onclick="addComponent('negative')">- Port</button>
+            <button class="btn btn-outline-light mb-2 w-100" onclick="toggleWireMode()">Wire Tool</button>
+            <button class="btn btn-outline-light mb-2 w-100" onclick="addComponent('bulb')">Bulb</button>
+            <div class="mt-4">
+                <button class="btn btn-success w-100 mb-2" onclick="undo()">Undo</button>
+                <button class="btn btn-warning w-100" onclick="redo()">Redo</button>
+            </div>
+        </div>
+        <div id="canvas" class="flex-grow-1 position-relative bg-light" 
+             onmousedown="handleMouseDown(event)"
+             onmousemove="handleMouseMove(event)"
+             onmouseup="handleMouseUp(event)">
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/interactjs/dist/interact.min.js"></script>
+    <script src="labtem.js"></script>
+</body>
+</html>
