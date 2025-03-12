@@ -53,6 +53,13 @@
             position: relative;
         }
 
+        .input-group label {
+            color: #fff;
+            font-size: 14px;
+            display: block;
+            margin-bottom: 5px;
+        }
+
         .input-group input {
             width: 100%;
             padding: 15px;
@@ -71,6 +78,7 @@
 
         .input-group input:focus {
             background: rgba(255, 255, 255, 0.2);
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
         }
 
         .login-btn {
@@ -94,7 +102,7 @@
 
         .forgot-password {
             text-align: center;
-            margin-top: 20px;
+            margin-top: 15px;
         }
 
         .forgot-password a {
@@ -113,12 +121,7 @@
             width: 100%;
             height: 100%;
             z-index: -1;
-        }
-
-        @keyframes twinkle {
-            0% { opacity: 0; }
-            50% { opacity: 1; }
-            100% { opacity: 0; }
+            overflow: hidden;
         }
 
         .star {
@@ -127,6 +130,12 @@
             height: 2px;
             background: #fff;
             border-radius: 50%;
+            animation: twinkle infinite alternate;
+        }
+
+        @keyframes twinkle {
+            0% { opacity: 0.2; transform: scale(1); }
+            100% { opacity: 1; transform: scale(1.5); }
         }
     </style>
 </head>
@@ -137,15 +146,17 @@
         <h1>Exoverse</h1>
         <form>
             <div class="input-group">
-                <input type="email" placeholder="Email" required>
+                <label for="email">Email</label>
+                <input type="email" id="email" placeholder="Enter your email" required aria-label="Email">
             </div>
             <div class="input-group">
-                <input type="password" placeholder="Password" required>
+                <label for="password">Password</label>
+                <input type="password" id="password" placeholder="Enter your password" required aria-label="Password">
             </div>
-            <button type="submit" class="login-btn">Sign Up</button>
+            <button type="submit" class="login-btn">Login</button>
         </form>
         <div class="forgot-password">
-            <a href="signup.html">Already have an account?, Login</a>
+            <a href="signup.html">Don't have an account? Sign Up</a>
         </div>
         <div class="forgot-password">
             <a href="../home/home.html">Continue without an account</a>
@@ -160,7 +171,7 @@
             star.className = 'star';
             star.style.left = `${Math.random() * 100}%`;
             star.style.top = `${Math.random() * 100}%`;
-            star.style.animation = `twinkle ${Math.random() * 3 + 1}s infinite`;
+            star.style.animationDuration = `${Math.random() * 2 + 1}s`;
             starsContainer.appendChild(star);
         }
     </script>
