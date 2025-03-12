@@ -3,43 +3,177 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ExoVerse - The Virtual Lab</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <title>Exoverse - Virtual Electronics Lab</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+        body {
+            min-height: 100vh;
+            background: linear-gradient(45deg, #0a192f, #112240);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            overflow-x: hidden;
+        }
+        .stars {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+        .star {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: #64ffda;
+            border-radius: 50%;
+            opacity: 0.8;
+        }
+        @keyframes twinkle {
+            0%, 100% { opacity: 0; }
+            50% { opacity: 1; }
+        }
+        h1 {
+            font-size: 90px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            background: linear-gradient(45deg, #64ffda, #00d4ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        h3 {
+            font-size: 28px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: #64ffda;
+        }
+        .scroll {
+            margin-top: 30px;
+            cursor: pointer;
+            animation: bounce 2s infinite;
+        }
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(10px); }
+        }
+        .login-btn {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            color: white;
+            font-size: 18px;
+            text-decoration: none;
+            z-index: 3;
+            transition: 0.2s;
+        }
+        .login-btn:hover {
+            color: rgb(211, 208, 208);
+            
+        }
+        .info-section {
+            margin-top: 100vh;
+            padding: 50px;
+            width: 80%;
+            text-align: center;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+        }
+        .info-icons {
+            font-size: 40px;
+            margin: 20px;
+            color: #64ffda;
+            transition: 0.3s;
+        }
+        .info-icons:hover {
+            color: #0a192f;
+        }
+        .features-list {
+            list-style: none;
+            padding: 0;
+        }
+        .features-list li {
+            font-size: 18px;
+            padding: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .features-list li i {
+            margin-right: 10px;
+            color: #64ffda;
+        }
+        .intro
+        {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            z-index: 1;
+            background: linear-gradient(45deg, #0a192f, #112240);
+        }
+    </style>
 </head>
 <body>
-    <div class="container">
-        <div class="title-box">
-            <h1><span class="bold">Exo</span>Verse</h1>
-            <p class="subtitle">The Virtual Lab</p>
-        </div>
-        <div class="button-box">
-            <button class="btn">Sign in</button>
-            <button class="btn">Sign up</button>
-
-            <a href="home/home.html"><button class="btn">Explore</button></a>
-            
-        </div>
-
-
-        <div class="social-icons">
-            <a href="https://github.com/sage-universe/ExoVerce"><i class="fa-brands fa-github"></i></a>
-            <a href="https://x.com/@yashpatil_01"><i class="fa-brands fa-x-twitter"></i></a>
+    <div class="stars" id="stars"></div>
+    <a href="sign/login.html" class="login-btn">Login</a>
+    <div class="intro">
+        <h1>Exoverse</h1>
+        <h3>The Virtual Electronics Lab</h3>
+        <div class="scroll" onclick="scrollToInfo()">
+            <i class="fas fa-arrow-down fa-3x"></i>
         </div>
     </div>
-
-   
-
+    <div class="info-section" id="info">
+        <h2>About Exoverse</h2>
+        <p><strong>From Sage Universe Org</strong></p>
+        <p>Exoverse is a revolutionary virtual electronics lab developed by Sage Universe Org. It enables users to build, experiment, and innovate with real-world physics and beyond. Designed for engineers, students, and tech enthusiasts, Exoverse brings the power of a real electronics lab into a digital space.</p>
+        <h3>Features</h3>
+        <ul class="features-list">
+            <li><i class="fas fa-microchip"></i> Simulate real-world electronic circuits</li>
+            <li><i class="fas fa-tools"></i> Build and test prototypes with customizable components</li>
+            <li><i class="fas fa-rocket"></i> Modify the laws of physics to create futuristic inventions</li>
+            <li><i class="fas fa-users"></i> Collaborate in a shared virtual workspace</li>
+            <li><i class="fas fa-code"></i> Support for multiple programming languages</li>
+            <li><i class="fas fa-cube"></i> 3D designing tools for complex system creation</li>
+        </ul>
+        <h3>Future Vision</h3>
+        <p>Exoverse aims to redefine how electronics and innovation are approached. In the future, users will be able to integrate AI-driven assistance, real-time collaboration tools, and even order physical prototypes of their virtual designs.</p>
+        <div>
+            <a href="https://github.com/PATILYASHH" class="info-icons" target="_blank"><i class="fab fa-github"></i></a>
+            <a href="https://x.com" class="info-icons" target="_blank"><i class="fab fa-twitter"></i></a>
+        </div>
+    </div>
     <script>
-        let signUp = document.querySelector(".btn:nth-child(2)");
-        let signIn = document.querySelector(".btn:nth-child(1)");
-        signUp.addEventListener("click", () => {
-            window.location.href = "sign/sign-up.html";
-        });
-        signIn.addEventListener("click", () => {
-            window.location.href = "sign/sign-in.html";
-        });
+        // Create animated stars
+        const starsContainer = document.getElementById('stars');
+        for(let i = 0; i < 150; i++) {
+            const star = document.createElement('div');
+            star.className = 'star';
+            star.style.left = `${Math.random() * 100}%`;
+            star.style.top = `${Math.random() * 100}%`;
+            star.style.animation = `twinkle ${Math.random() * 3 + 1}s infinite`;
+            starsContainer.appendChild(star);
+        }
+        // Scroll to info section
+        function scrollToInfo() {
+            document.getElementById('info').scrollIntoView({ behavior: 'smooth' });
+        }
     </script>
-
 </body>
 </html>
