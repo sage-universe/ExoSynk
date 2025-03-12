@@ -1,0 +1,67 @@
+:root {
+    --exo-primary: #232f3e;
+    --exo-secondary: #ff9900;
+    --exo-accent: #146eb4;
+}
+
+.exo-navbar {
+    background-color: var(--exo-primary);
+    padding: 0.5rem 1rem;
+}
+
+.exo-logo {
+    font-weight: 700;
+    background: linear-gradient(to right, #46b4d4, #7d5ba6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.exo-search-btn {
+    background-color: var(--exo-secondary);
+    color: var(--exo-primary);
+}
+
+.exo-cart-btn {
+    color: white;
+    position: relative;
+}
+
+.exo-cart-count {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background: var(--exo-secondary);
+    color: var(--exo-primary);
+    border-radius: 50%;
+    padding: 2px 8px;
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+
+.exo-hero {
+    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
+                url('https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+    background-size: cover;
+    height: 400px;
+}
+
+.exo-product-card {
+    transition: transform 0.2s;
+    border: 1px solid #ddd;
+}
+
+.exo-product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.exo-product-img {
+    height: 200px;
+    object-fit: contain;
+    padding: 1rem;
+}
+
+.exo-price {
+    color: var(--exo-accent);
+    font-weight: bold;
+}
