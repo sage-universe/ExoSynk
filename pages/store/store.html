@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exostore - Electronic Building Marketplace</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link rel="stylesheet" href="store.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar exo-navbar navbar-expand-lg">
+        <div class="container-fluid">
+            <a class="navbar-brand exo-logo fs-3" href="#">EXOSTORE</a>
+            
+            <div class="d-flex flex-grow-1 mx-4">
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Search builds and components...">
+                    <button class="btn exo-search-btn">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
+            </div>
+
+            <div class="d-flex align-items-center">
+                <button class="btn exo-cart-btn">
+                    <i class="fas fa-shopping-cart fa-lg"></i>
+                    <span class="exo-cart-count">0</span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Categories Navigation -->
+    <div class="bg-light py-2 border-bottom">
+        <div class="container-fluid d-flex gap-3">
+            <a href="#" class="text-dark text-decoration-none">
+                <i class="fas fa-box me-1"></i>
+                All Products
+            </a>
+            <a href="#" class="text-dark text-decoration-none">
+                <i class="fas fa-users-cog me-1"></i>
+                User Builds
+            </a>
+            <a href="#" class="text-dark text-decoration-none">
+                <i class="fas fa-cube me-1"></i>
+                Ready Builds
+            </a>
+            <a href="#" class="text-dark text-decoration-none">
+                <i class="fas fa-microchip me-1"></i>
+                Components
+            </a>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <div class="exo-hero d-flex align-items-center">
+        <div class="container text-white">
+            <h1 class="display-4 fw-bold">Build Your Electronic Universe</h1>
+            <p class="lead">Shop pre-configured systems or create custom builds with individual components</p>
+            <button class="btn btn-warning btn-lg">
+                <i class="fas fa-toolbox me-2"></i>
+                Start Building
+            </button>
+        </div>
+    </div>
+
+    <!-- Products Grid -->
+    <div class="container-fluid mt-4">
+        <div class="row row-cols-1 row-cols-md-3 row-cols-lg-4 g-4">
+            <div class="col">
+                <div class="card exo-product-card h-100">
+                    <img src="https://static.todamateria.com.br/upload/sa/te/satelites-artificiais-og.jpg?class=ogImageWide" class="card-img-top exo-product-img" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">radio satelite</h5>
+                        <div class="text-warning mb-2">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                        </div>
+                        <p class="exo-price">$2999.99</p>
+                        <button class="btn btn-outline-primary w-100 add-to-cart">
+                            <i class="fas fa-cart-plus me-2"></i>
+                            Add to Cart
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Add more product cards here -->
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="store.js" > </script>
+</body>
+</html>
