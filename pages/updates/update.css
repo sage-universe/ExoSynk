@@ -1,0 +1,112 @@
+/* General Styling */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #121212;
+    color: white;
+}
+
+/* Layout */
+.container {
+    display: flex;
+    height: 100vh;
+}
+
+/* Sidebar */
+.sidebar {
+    width: 15%;
+    background: #1E1E1E;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.profile-btn {
+    background: #333;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    cursor: pointer;
+}
+
+.menu-icons {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.menu-item {
+    width: 40px;
+    height: 40px;
+    background: #333;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+/* Main Content */
+.main-content {
+    flex: 1;
+    padding: 20px;
+    background: #181818;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+/* Tweet Box */
+.tweet {
+    width: 60%;
+    background: #252525;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    position: relative;
+}
+
+.tweet-header {
+    width: 40px;
+    height: 40px;
+    background: gray;
+    border-radius: 50%;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+}
+
+/* Reply Box */
+.reply-box {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.reply-box input {
+    width: 70%;
+    padding: 8px;
+    border: none;
+    border-radius: 5px;
+    background: #333;
+    color: white;
+}
+
+.reply-box button {
+    background: #007BFF;
+    border: none;
+    padding: 8px 10px;
+    color: white;
+    cursor: pointer;
+    margin-left: 5px;
+}
+
+/* Ads Section */
+.ads {
+    width: 20%;
+    background: #1E1E1E;
+    padding: 20px;
+    text-align: center;
+}

@@ -1,0 +1,99 @@
+/* Global Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #121212;
+    color: #fff;
+}
+
+/* Navbar */
+nav {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 30px;
+    background-color: #222;
+}
+nav .logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+nav ul li {
+    display: inline;
+}
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+}
+nav ul li a.active {
+    font-weight: bold;
+    color: #00bcd4;
+}
+
+/* Search Bar */
+.search-bar {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+}
+.search-bar input {
+    padding: 10px;
+    width: 60%;
+    border: none;
+    border-radius: 5px;
+}
+.search-bar button {
+    padding: 10px;
+    background-color: #00bcd4;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+}
+
+/* Video Grid (YouTube-Style) */
+.video-section {
+    padding: 20px;
+}
+.video-grid {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+.video-card {
+    background-color: #333;
+    padding: 10px;
+    width: 200px;
+    border-radius: 5px;
+    text-align: center;
+}
+.video-card img {
+    width: 100%;
+    border-radius: 5px;
+}
+
+/* Course Slider (Netflix-Style) */
+.courses-section {
+    padding: 20px;
+}
+.course-slider {
+    display: flex;
+    overflow-x: auto;
+    gap: 15px;
+}
+.course-card {
+    min-width: 300px;
+    background-color: #444;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+}
+.course-card img {
+    width: 100%;
+    border-radius: 5px;
+}
