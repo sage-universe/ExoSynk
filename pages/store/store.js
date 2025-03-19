@@ -7,3 +7,8 @@ document.querySelectorAll('.add-to-cart').forEach(button => {
         cartElements.forEach(el => el.textContent = cartCount);
     });
 });
+
+page()
+{
+    alert("Hello World");
+}
