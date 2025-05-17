@@ -6,240 +6,87 @@
     <title>Exochat - Collaboration Hub</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        :root {
-            --exo-primary: #2A9D8F;
-            --exo-secondary: #264653;
-            --exo-accent: #E9C46A;
-        }
-        
-        .sidebar {
-            width: 380px;
-            border-right: 1px solid #dee2e6;
-        }
-        
-        .chat-list {
-            height: calc(100vh - 120px);
-            overflow-y: auto;
-        }
-        
-        .pinned-chats {
-            background: rgba(42, 157, 143, 0.1);
-        }
-        
-        .user-avatar {
-            width: 45px;
-            height: 45px;
-        }
-        
-        .active-chat {
-            background-color: var(--exo-primary) !important;
-            color: white !important;
-        }
-    </style>
+    <link rel="stylesheet" href="assets/css/style.css">
 </head>
-<body class="bg-light">
-    <div class="container-fluid">
-        <div class="row">
-            <!-- Left Sidebar -->
-            <div class="col-md-4 col-lg-3 sidebar bg-white">
-                <!-- Header -->
+<body>
+    <div class="container-fluid h-100">
+        <div class="row h-100">
+            <!-- Sidebar -->
+            <div class="col-md-3 col-lg-2 bg-dark text-white p-0">
                 <div class="p-3 border-bottom">
-                    <div class="d-flex align-items-center justify-content-between">
-                        <h4 class="mb-0 text-primary">Exochat</h4>
-                        <div class="dropdown">
-                            <button class="btn btn-link" data-bs-toggle="dropdown">
-                                <i class="fas fa-ellipsis-v"></i>
-                            </button>
-                            <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#newTeamModal">
-                                    <i class="fas fa-users me-2"></i>New Team
-                                </a></li>
-                                <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#addFriendModal">
-                                    <i class="fas fa-user-plus me-2"></i>Add Friend
-                                </a></li>
-                            </ul>
+                    <h4 class="mb-0">Exochat</h4>
+                </div>
+                
+                <!-- User Profile -->
+                <div class="p-3 border-bottom">
+                    <div class="d-flex align-items-center">
+                        <img src="assets/img/yash.png" class="rounded-circle" width="40" height="40" alt="Profile">
+                        <div class="ms-3">
+                            <h6 class="mb-0" id="currentUser"></h6>
+                            <small class="text-muted">Online</small>
                         </div>
                     </div>
                 </div>
 
-                <!-- Pinned Chats -->
-                <div class="p-3 pinned-chats">
-                    <h6 class="text-muted mb-3"><i class="fas fa-thumbtack me-2"></i>Pinned</h6>
-                    <div id="pinnedChats" class="list-group">
-                        <!-- Pinned chats will be added here -->
-                    </div>
-                </div>
-
-                <!-- Chat List -->
+                <!-- Chat Rooms -->
                 <div class="p-3">
-                    <div class="d-flex justify-content-between align-items-center mb-3">
-                        <h6 class="text-muted mb-0">Recent Chats</h6>
-                        <div class="btn-group">
-                            <button class="btn btn-sm btn-outline-secondary active" data-filter="all">All</button>
-                            <button class="btn btn-sm btn-outline-secondary" data-filter="friends">Friends</button>
-                            <button class="btn btn-sm btn-outline-secondary" data-filter="teams">Teams</button>
-                        </div>
+                    <h6 class="mb-3">Chat Rooms</h6>
+                    <div class="list-group" id="roomsList">
+                        <button class="list-group-item list-group-item-action" data-room="general">General</button>
+                        <button class="list-group-item list-group-item-action" data-room="tech">Tech Discussion</button>
+                        <button class="list-group-item list-group-item-action" data-room="projects">Projects</button>
                     </div>
-                    <div id="chatList" class="list-group">
-                        <!-- Chat items will be added here -->
-                    </div>
+                </div>
+
+                <!-- Online Users -->
+                <div class="p-3">
+                    <h6 class="mb-3">Online Users</h6>
+                    <div class="list-group" id="onlineUsers"></div>
                 </div>
             </div>
 
-            <!-- Right Chat Area -->
-            <div class="col-md-8 col-lg-9">
-                <!-- Chat Header -->
-                <div class="p-3 bg-white border-bottom">
+            <!-- Chat Area -->
+            <div class="col-md-9 col-lg-10 p-0">
+                <div class="chat-header p-3 bg-light border-bottom">
                     <div class="d-flex align-items-center">
-                        <div class="d-flex align-items-center flex-grow-1">
-                            <img src="assets/img/yash.png" class="user-avatar rounded-circle me-3">
-                            <div>
-                                <h5 class="mb-0">Team Alpha</h5>
-                                <small class="text-muted">3 members online</small>
-                            </div>
-                        </div>
-                        <div class="d-flex gap-2">
-                            <button class="btn btn-primary">
-                                <i class="fas fa-phone"></i>
-                            </button>
-                            <button class="btn btn-primary">
-                                <i class="fas fa-video"></i>
-                            </button>
-                            <button class="btn btn-primary">
-                                <i class="fas fa-ellipsis-v"></i>
-                            </button>
-                        </div>
+                        <h5 class="mb-0" id="currentRoom">General</h5>
+                        <small class="text-muted ms-2" id="onlineCount"></small>
                     </div>
                 </div>
 
-                <!-- Chat Messages -->
-                <div class="chat-messages p-3" style="height: calc(100vh - 160px); overflow-y: auto">
-                    <!-- Messages will be added here -->
-                </div>
+                <!-- Messages -->
+                <div class="messages-container p-3" id="messages"></div>
 
                 <!-- Message Input -->
-                <div class="p-3 bg-white border-top">
-                    <div class="input-group">
-                        <button class="btn btn-outline-secondary">
-                            <i class="fas fa-plus"></i>
-                        </button>
-                        <input type="text" class="form-control" placeholder="Type your message...">
-                        <button class="btn btn-primary">
-                            <i class="fas fa-paper-plane"></i>
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Modals -->
-    <div class="modal fade" id="newTeamModal">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Create New Team</h5>
-                    <button class="btn-close" data-bs-dismiss="modal"></button>
-                </div>
-                <div class="modal-body">
-                    <form id="teamForm">
-                        <div class="mb-3">
-                            <label class="form-label">Team Name</label>
-                            <input type="text" class="form-control" required>
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label">Description</label>
-                            <textarea class="form-control" rows="3"></textarea>
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label">Add Members</label>
-                            <div class="input-group">
-                                <input type="text" class="form-control" placeholder="Search users...">
-                                <button class="btn btn-outline-secondary">
-                                    <i class="fas fa-search"></i>
-                                </button>
-                            </div>
-                            <div id="selectedMembers" class="mt-2"></div>
-                        </div>
+                <div class="p-3 bg-light border-top">
+                    <form id="messageForm" class="d-flex">
+                        <input type="text" class="form-control me-2" id="messageInput" placeholder="Type your message...">
+                        <button type="submit" class="btn btn-primary">Send</button>
                     </form>
                 </div>
-                <div class="modal-footer">
-                    <button class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                    <button class="btn btn-primary" form="teamForm">Create Team</button>
-                </div>
             </div>
         </div>
     </div>
 
-    <div class="modal fade" id="addFriendModal">
+    <!-- Username Modal -->
+    <div class="modal fade" id="usernameModal" data-bs-backdrop="static">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">Add Friend</h5>
-                    <button class="btn-close" data-bs-dismiss="modal"></button>
+                    <h5 class="modal-title">Enter Username</h5>
                 </div>
                 <div class="modal-body">
-                    <div class="input-group mb-3">
-                        <input type="text" class="form-control" placeholder="Search by username or email...">
-                        <button class="btn btn-primary">
-                            <i class="fas fa-search"></i>
-                        </button>
-                    </div>
-                    <div id="searchResults" class="list-group">
-                        <!-- Search results will be added here -->
-                    </div>
+                    <input type="text" class="form-control" id="usernameInput" placeholder="Your username">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" id="joinChat">Join Chat</button>
                 </div>
             </div>
         </div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script>
-        // Sample Data
-        const chats = [
-            { type: 'team', name: 'Project Alpha', members: 5, pinned: true, unread: 2 },
-            { type: 'friend', name: 'John Doe', online: true, lastMessage: 'See you tomorrow!' },
-            { type: 'friend', name: 'Alice Smith', online: false, lastMessage: 'Thanks for the help!' },
-            { type: 'team', name: 'Design Team', members: 8, pinned: false, unread: 0 }
-        ];
-
-        // Initialize Chat List
-        function renderChats(filter = 'all') {
-            const container = document.getElementById('chatList');
-            const filtered = chats.filter(chat => 
-                filter === 'all' || chat.type === filter
-            );
-            
-            container.innerHTML = filtered.map(chat => `
-                <div class="list-group-item list-group-item-action d-flex align-items-center ${chat.pinned ? 'pinned' : ''}">
-                    <img src="https://via.placeholder.com/40" class="rounded-circle me-3">
-                    <div class="flex-grow-1">
-                        <h6 class="mb-0">${chat.name}</h6>
-                        <small class="text-muted">${chat.type === 'team' ? 
-                            `${chat.members} members` : 
-                            chat.lastMessage}</small>
-                    </div>
-                    ${chat.unread > 0 ? `
-                    <span class="badge bg-primary rounded-pill">${chat.unread}</span>` : ''}
-                    <button class="btn btn-link text-dark ms-2 pin-btn">
-                        <i class="fas fa-thumbtack"></i>
-                    </button>
-                </div>
-            `).join('');
-        }
-
-        // Event Listeners
-        document.querySelectorAll('[data-filter]').forEach(btn => {
-            btn.addEventListener('click', () => {
-                document.querySelectorAll('[data-filter]').forEach(b => b.classList.remove('active'));
-                btn.classList.add('active');
-                renderChats(btn.dataset.filter);
-            });
-        });
-
-        // Initialize
-        renderChats();
-    </script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="assets/js/app.js"></script>
 </body>
 </html>
