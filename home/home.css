@@ -1,6 +1,6 @@
 body {
     font-family: 'Arial', sans-serif;
-    background-color: #f8f9fa;
+    background-color: #fdfdfd;
 }
 
 /* Navbar brand styling */
@@ -24,5 +24,11 @@ body {
     font-weight: bold;
 }
 
+.card-body p {
+    margin-bottom: 0.5rem;
+}
 
-
+.card-body i {
+    margin-right: 6px;
+    color: #6c757d;
+}
