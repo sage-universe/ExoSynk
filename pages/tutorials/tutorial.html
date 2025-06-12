@@ -1,54 +1,402 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ExoTutor - Learn Seamlessly</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Exotutor</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <style>
+    :root {
+      --bg-dark: #0e0e0e;
+      --bg-secondary: #1c1c1c;
+      --accent-red: #ff3c3c;
+      --accent-blue: #3ea6ff;
+      --text-light: #f9f9f9;
+      --text-muted: #b3b3b3;
+    }
+    body {
+      background-color: var(--bg-dark);
+      color: var(--text-light);
+      font-family: 'Segoe UI', sans-serif;
+    }
+    .sidebar {
+      background-color: var(--bg-secondary);
+      height: 100vh;
+      position: fixed;
+      width: 200px;
+      padding-top: 1rem;
+      overflow-y: auto;
+      box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
+    }
+    .sidebar a {
+      color: var(--text-muted);
+      padding: 0.75rem 1rem;
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      transition: 0.2s;
+      font-size: 0.9rem;
+    }
+    .sidebar a:hover {
+      background: var(--accent-red);
+      color: #fff;
+    }
+    .sidebar i {
+      margin-right: 10px;
+    }
+    .main {
+      margin-left: 220px;
+      padding: 2rem;
+    }
+    .topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 2rem;
+    }
+    .topbar input {
+      background: #2a2a2a;
+      border: none;
+      color: #fff;
+      padding: 0.6rem 1rem;
+      width: 360px;
+      border-radius: 10px;
+      outline: none;
+    }
+    .video-card, .course-card {
+      background-color: var(--bg-secondary);
+      border-radius: 16px;
+      overflow: hidden;
+      transition: transform 0.3s, box-shadow 0.3s;
+      border: 1px solid #333;
+      height: 100%;
+    }
+    .video-card:hover, .course-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 0 25px rgba(255, 0, 0, 0.3);
+    }
+    .course-card {
+      min-height: 400px;
+      height: 500px;
+      width: 90%;
+    }
+    .avatar {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+    }
+    .card-body h5 {
+      font-size: 1.1rem;
+      margin: 0.5rem 0;
+      color: var(--text-light);
+    }
+    .green {
+      color: #22c55e;
+    }
+    .rating {
+      background-color: var(--accent-red);
+      padding: 3px 8px;
+      border-radius: 5px;
+      font-size: 0.85rem;
+      color: #fff;
+      margin-right: 6px;
+    }
+    .topbar i {
+      color: var(--text-muted);
+      font-size: 1.2rem;
+      cursor: pointer;
+      margin-left: 15px;
+      transition: color 0.2s;
+    }
+    .topbar i:hover {
+      color: var(--accent-blue);
+    }
+    .text-muted {
+      color: white;
+    }
+  </style>
 </head>
 <body>
+  <div class="sidebar d-flex flex-column">
+    <h4 class="text-white text-center mb-4">Exotutor</h4>
+    <a href="#"><i class="fas fa-home"></i> Home</a>
+    <a href="#"><i class="fas fa-heart"></i> Followings</a>
+    <a href="#"><i class="fas fa-history"></i> History</a>
+    <a href="#"><i class="fas fa-list"></i> Playlist</a>
+    <a href="#"><i class="fas fa-thumbs-up"></i> Liked Videos</a>
+    <a href="#"><i class="fas fa-graduation-cap"></i> Course</a>
+    <a href="#"><i class="fas fa-book"></i> Library</a>
+    <a href="#"><i class="fas fa-wifi"></i> Live</a>
+    <a href="#"><i class="fas fa-user-cog"></i> Creator Area</a>
+    <a href="#"><i class="fas fa-video"></i> Create</a>
+    <a href="#"><i class="fas fa-upload"></i> Your Video</a>
+  </div>
 
-    <!-- Navbar -->
-    <nav>
-        <div class="logo">ExoTutor</div>
-        <ul>
-            <li><a href="index.html" class="active">Home</a></li>
-            <li><a href="courses.html">Courses</a></li>
-            <li><a href="live.html">Live</a></li>
-            <li><a href="#">Profile</a></li>
-        </ul>
-    </nav>
-
-    <!-- Search Bar -->
-    <div class="search-bar">
-        <input type="text" placeholder="Search for courses or videos...">
-        <button><i class="fas fa-search"></i></button>
+  <div class="main">
+    <div class="topbar">
+      <input type="text" placeholder="Search...">
+      <div>
+        <i class="fas fa-microphone"></i>
+        <i class="fas fa-bell"></i>
+        <i class="fas fa-user-circle"></i>
+      </div>
     </div>
 
-    <!-- Free Content Section -->
-    <section class="video-section">
-        <h2>Free Learning Videos</h2>
-        <div class="video-grid">
-            <div class="video-card">
-                <img src="https://upload.wikimedia.org/wikipedia/en/2/23/Deadpool_%282016_poster%29.png" alt="Video Thumbnail">
-                <h3>Introduction to Python</h3>
+    <h4 class="mb-3">Videos</h4>
+    <div class="row row-cols-1 row-cols-md-3 g-4 mb-5">
+      <div class="col">
+        <div class="video-card card">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRN8Kj9aB48I78B1EqdTA3c_XHSfQnC3rDpXA&s" class="card-img-top" alt="video">
+          <div class="card-body d-flex">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRN8Kj9aB48I78B1EqdTA3c_XHSfQnC3rDpXA&s" class="avatar me-2">
+            <div>
+              <h5>Title of the video in this line</h5>
+              <small class="text-muted">Channel Name • 100K views</small>
             </div>
-            <div class="video-card">
-                <img src="https://upload.wikimedia.org/wikipedia/en/2/23/Deadpool_%282016_poster%29.png" alt="Video Thumbnail">
-                <h3>Web Development Basics</h3>
-            </div>
-            <div class="video-card">
-                <img src="https://upload.wikimedia.org/wikipedia/en/2/23/Deadpool_%282016_poster%29.png" alt="Video Thumbnail">
-                <h3>Machine Learning Overview</h3>
-            </div>
-            <div class="video-card">
-                <img src="https://upload.wikimedia.org/wikipedia/en/2/23/Deadpool_%282016_poster%29.png" alt="Video Thumbnail">
-                <h3>Data Science Crash Course</h3>
-            </div>
+          </div>
         </div>
-    </section>
+      </div>
+      <div class="col">
+        <div class="video-card card">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRN8Kj9aB48I78B1EqdTA3c_XHSfQnC3rDpXA&s" class="card-img-top" alt="video">
+          <div class="card-body d-flex">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRN8Kj9aB48I78B1EqdTA3c_XHSfQnC3rDpXA&s" class="avatar me-2">
+            <div>
+              <h5>Title of the video in this line</h5>
+              <small class="text-muted">Channel Name • 75K views</small>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="video-card card">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRN8Kj9aB48I78B1EqdTA3c_XHSfQnC3rDpXA&s" class="card-img-top" alt="video">
+          <div class="card-body d-flex">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRN8Kj9aB48I78B1EqdTA3c_XHSfQnC3rDpXA&s" class="avatar me-2">
+            <div>
+              <h5>Title of the video in this line</h5>
+              <small class="text-muted">Channel Name • 75K views</small>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="video-card card">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRN8Kj9aB48I78B1EqdTA3c_XHSfQnC3rDpXA&s" class="card-img-top" alt="video">
+          <div class="card-body d-flex">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRN8Kj9aB48I78B1EqdTA3c_XHSfQnC3rDpXA&s" class="avatar me-2">
+            <div>
+              <h5>Title of the video in this line</h5>
+              <small class="text-muted">Channel Name • 75K views</small>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="video-card card">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRN8Kj9aB48I78B1EqdTA3c_XHSfQnC3rDpXA&s" class="card-img-top" alt="video">
+          <div class="card-body d-flex">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRN8Kj9aB48I78B1EqdTA3c_XHSfQnC3rDpXA&s" class="avatar me-2">
+            <div>
+              <h5>Title of the video in this line</h5>
+              <small class="text-muted">Channel Name • 75K views</small>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="video-card card">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRN8Kj9aB48I78B1EqdTA3c_XHSfQnC3rDpXA&s" class="card-img-top" alt="video">
+          <div class="card-body d-flex">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRN8Kj9aB48I78B1EqdTA3c_XHSfQnC3rDpXA&s" class="avatar me-2">
+            <div>
+              <h5>Title of the video in this line</h5>
+              <small class="text-muted">Channel Name • 75K views</small>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="video-card card">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRN8Kj9aB48I78B1EqdTA3c_XHSfQnC3rDpXA&s" class="card-img-top" alt="video">
+          <div class="card-body d-flex">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRN8Kj9aB48I78B1EqdTA3c_XHSfQnC3rDpXA&s" class="avatar me-2">
+            <div>
+              <h5>Title of the video in this line</h5>
+              <small class="text-muted">Channel Name • 75K views</small>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="video-card card">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRN8Kj9aB48I78B1EqdTA3c_XHSfQnC3rDpXA&s" class="card-img-top" alt="video">
+          <div class="card-body d-flex">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRN8Kj9aB48I78B1EqdTA3c_XHSfQnC3rDpXA&s" class="avatar me-2">
+            <div>
+              <h5>Title of the video in this line</h5>
+              <small class="text-muted">Channel Name • 75K views</small>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="video-card card">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRN8Kj9aB48I78B1EqdTA3c_XHSfQnC3rDpXA&s" class="card-img-top" alt="video">
+          <div class="card-body d-flex">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRN8Kj9aB48I78B1EqdTA3c_XHSfQnC3rDpXA&s" class="avatar me-2">
+            <div>
+              <h5>Title of the video in this line</h5>
+              <small class="text-muted">Channel Name • 75K views</small>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="video-card card">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRN8Kj9aB48I78B1EqdTA3c_XHSfQnC3rDpXA&s" class="card-img-top" alt="video">
+          <div class="card-body d-flex">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRN8Kj9aB48I78B1EqdTA3c_XHSfQnC3rDpXA&s" class="avatar me-2">
+            <div>
+              <h5>Title of the video in this line</h5>
+              <small class="text-muted">Channel Name • 75K views</small>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="video-card card">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRN8Kj9aB48I78B1EqdTA3c_XHSfQnC3rDpXA&s" class="card-img-top" alt="video">
+          <div class="card-body d-flex">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRN8Kj9aB48I78B1EqdTA3c_XHSfQnC3rDpXA&s" class="avatar me-2">
+            <div>
+              <h5>Title of the video in this line</h5>
+              <small class="text-muted">Channel Name • 75K views</small>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="video-card card">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRN8Kj9aB48I78B1EqdTA3c_XHSfQnC3rDpXA&s" class="card-img-top" alt="video">
+          <div class="card-body d-flex">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRN8Kj9aB48I78B1EqdTA3c_XHSfQnC3rDpXA&s" class="avatar me-2">
+            <div>
+              <h5>Title of the video in this line</h5>
+              <small class="text-muted">Channel Name • 75K views</small>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
 
-    <script src="script.js"></script>
+    <h4 class="mb-3">Courses</h4>
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+      <div class="col">
+        <div class="course-card card">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRN8Kj9aB48I78B1EqdTA3c_XHSfQnC3rDpXA&s" class="card-img-top" alt="course">
+          <div class="card-body">
+            <div class="d-flex align-items-center mb-2">
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRN8Kj9aB48I78B1EqdTA3c_XHSfQnC3rDpXA&s" class="avatar me-2">
+              <small class="text-muted">Channel Name</small>
+            </div>
+            <h5>Title of the Course</h5>
+            <div class="d-flex justify-content-between align-items-center mt-2">
+              <span class="rating"><i class="fas fa-star"></i> 4.5</span>
+              <span class="green">5000 Rs</span>
+              <small class="text-muted">3214 enrolled</small>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="course-card card">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRN8Kj9aB48I78B1EqdTA3c_XHSfQnC3rDpXA&s" class="card-img-top" alt="course">
+          <div class="card-body">
+            <div class="d-flex align-items-center mb-2">
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRN8Kj9aB48I78B1EqdTA3c_XHSfQnC3rDpXA&s" class="avatar me-2">
+              <small class="text-muted">Channel Name</small>
+            </div>
+            <h5>Another Course Title</h5>
+            <div class="d-flex justify-content-between align-items-center mt-2">
+              <span class="rating"><i class="fas fa-star"></i> 4.8</span>
+              <span class="green">7000 Rs</span>
+              <small class="text-muted">2500 enrolled</small>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="course-card card">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRN8Kj9aB48I78B1EqdTA3c_XHSfQnC3rDpXA&s" class="card-img-top" alt="course">
+          <div class="card-body">
+            <div class="d-flex align-items-center mb-2">
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRN8Kj9aB48I78B1EqdTA3c_XHSfQnC3rDpXA&s" class="avatar me-2">
+              <small class="text-muted">Channel Name</small>
+            </div>
+            <h5>Another Course Title</h5>
+            <div class="d-flex justify-content-between align-items-center mt-2">
+              <span class="rating"><i class="fas fa-star"></i> 4.8</span>
+              <span class="green">7000 Rs</span>
+              <small class="text-muted">2500 enrolled</small>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="course-card card">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRN8Kj9aB48I78B1EqdTA3c_XHSfQnC3rDpXA&s" class="card-img-top" alt="course">
+          <div class="card-body">
+            <div class="d-flex align-items-center mb-2">
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRN8Kj9aB48I78B1EqdTA3c_XHSfQnC3rDpXA&s" class="avatar me-2">
+              <small class="text-muted">Channel Name</small>
+            </div>
+            <h5>Another Course Title</h5>
+            <div class="d-flex justify-content-between align-items-center mt-2">
+              <span class="rating"><i class="fas fa-star"></i> 4.8</span>
+              <span class="green">7000 Rs</span>
+              <small class="text-muted">2500 enrolled</small>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="course-card card">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRN8Kj9aB48I78B1EqdTA3c_XHSfQnC3rDpXA&s" class="card-img-top" alt="course">
+          <div class="card-body">
+            <div class="d-flex align-items-center mb-2">
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRN8Kj9aB48I78B1EqdTA3c_XHSfQnC3rDpXA&s" class="avatar me-2">
+              <small class="text-muted">Channel Name</small>
+            </div>
+            <h5>Another Course Title</h5>
+            <div class="d-flex justify-content-between align-items-center mt-2">
+              <span class="rating"><i class="fas fa-star"></i> 4.8</span>
+              <span class="green">7000 Rs</span>
+              <small class="text-muted">2500 enrolled</small>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="course-card card">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRN8Kj9aB48I78B1EqdTA3c_XHSfQnC3rDpXA&s" class="card-img-top" alt="course">
+          <div class="card-body">
+            <div class="d-flex align-items-center mb-2">
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRN8Kj9aB48I78B1EqdTA3c_XHSfQnC3rDpXA&s" class="avatar me-2">
+              <small class="text-muted">Channel Name</small>
+            </div>
+            <h5>Another Course Title</h5>
+            <div class="d-flex justify-content-between align-items-center mt-2">
+              <span class="rating"><i class="fas fa-star"></i> 4.8</span>
+              <span class="green">7000 Rs</span>
+              <small class="text-muted">2500 enrolled</small>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </body>
 </html>
